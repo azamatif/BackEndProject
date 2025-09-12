@@ -1,0 +1,267 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Start Header Area -->
+<header class="header-area">
+    <div class="main-header d-none d-lg-block">
+        <div class="header-top theme-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="welcome-message">
+                            <p>Welcome to Juan online store</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="header-top-settings">
+                            <ul class="nav align-items-center justify-content-end">
+                                <li class="curreny-wrap">
+                                    $ Dollar (US)
+                                    <i class="fa fa-angle-down"></i>
+                                    <ul class="dropdown-list curreny-list">
+                                        <li><a href="#">$ usd</a></li>
+                                        <li><a href="#">€ EURO</a></li>
+                                    </ul>
+                                </li>
+                                <li class="language">
+                                    <img src="@(Url.Content("~/assets/img/icon/en.png"))" alt="flag" /> English
+                                    <i class="fa fa-angle-down"></i>
+                                    <ul class="dropdown-list">
+                                        <li>
+                                            <a href="#">
+                                                <img src="@(Url.Content("~/assets/img/icon/en.png"))" alt="flag" />
+                                                english
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="@(Url.Content("~/assets/img/icon/fr.png"))" alt="flag" />
+                                                french
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main-area sticky">
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="@(Url.Content("~/assets/img/logo/logo.png"))" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 position-static">
+                        <div class="main-menu-area">
+                            <div class="main-menu">
+                                <nav class="desktop-menu">
+                                    <ul>
+                                        <li class="active">
+                                            <a asp-controller="Home" asp-action="Index">Home <i class="fa fa-angle-down"></i></a>
+                                        </li>
+                                        <li class="static">
+                                            <a href="#">pages <i class="fa fa-angle-down"></i></a>
+                                        </li>
+                                        <li><a href="#">shop <i class="fa fa-angle-down"></i></a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="header-configure-wrapper">
+                            <div class="header-configure-area">
+                                <ul class="nav justify-content-end">
+                                    <li><a href="#" class="offcanvas-btn"><i class="ion-ios-search-strong"></i></a></li>
+                                    <li class="user-hover">
+                                        <a href="#"><i class="ion-ios-gear-outline"></i></a>
+                                        <ul class="dropdown-list">
+                                            <li><a href="#">login</a></li>
+                                            <li><a href="#">register</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="minicart-btn"><i class="ion-bag"></i><div class="notification">2</div></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile header -->
+    <div class="mobile-header d-lg-none d-md-block sticky">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="mobile-main-header">
+                        <div class="mobile-logo">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="@(Url.Content("~/assets/img/logo/logo.png"))" alt="Brand Logo" />
+                            </a>
+                        </div>
+                        <div class="mobile-menu-toggler">
+                            <div class="mini-cart-wrap"><a href="#"><i class="ion-bag"></i></a></div>
+                            <div class="mobile-menu-btn"><div class="off-canvas-btn"><i class="ion-navicon"></i></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<main>
+    <section class="hero-slider">
+        <div class="container">
+            <div class="hero-slider-active">
+                <div class="hero-single-slide">
+                    <div class="hero-slider-item bg-img" style="background-image: url('@(Url.Content("~/assets/img/slider/slider-1.jpg"))');">
+                        <div class="hero-slider-content slide-1">
+                            <h5 class="slide-subtitle">Top Selling!</h5>
+                            <h2 class="slide-title">New Collection</h2>
+                            <p class="slide-desc">Lorem ipsum dolor sit amet.</p>
+                            <a href="#" class="btn btn-hero">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-single-slide">
+                    <div class="hero-slider-item bg-img" style="background-image: url('@(Url.Content("~/assets/img/slider/slider-2.jpg"))');">
+                        <div class="hero-slider-content slide-1">
+                            <h5 class="slide-subtitle">Best Selling!</h5>
+                            <h2 class="slide-title">Top Collection</h2>
+                            <p class="slide-desc">Lorem ipsum dolor sit amet.</p>
+                            <a href="#" class="btn btn-hero">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- service features -->
+    <section class="service-policy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="service-policy-item mt-30 bg-1">
+                        <div class="policy-icon">
+                            <img src="@(Url.Content("~/assets/img/icon/policy-1.png"))" alt="policy icon" />
+                        </div>
+                        <div class="policy-content">
+                            <h5 class="policy-title">FREE SHIPPING</h5>
+                            <p class="policy-desc">Free shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-policy-item mt-30 bg-2">
+                        <div class="policy-icon">
+                            <img src="@(Url.Content("~/assets/img/icon/policy-2.png"))" alt="policy icon" />
+                        </div>
+                        <div class="policy-content">
+                            <h5 class="policy-title">ONLINE SUPPORT</h5>
+                            <p class="policy-desc">Online support 24 hours a day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-policy-item mt-30 bg-3">
+                        <div class="policy-icon">
+                            <img src="@(Url.Content("~/assets/img/icon/policy-3.png"))" alt="policy icon" />
+                        </div>
+                        <div class="policy-content">
+                            <h5 class="policy-title">MONEY RETURN</h5>
+                            <p class="policy-desc">Back guarantee under 5 days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- product samples (kısa) -->
+    <section class="our-product section-padding">
+        <div class="container">
+            <div class="product-carousel-4">
+                <div class="product-item">
+                    <div class="product-thumb">
+                        <a href="#"><img src="@(Url.Content("~/assets/img/product/product-1.jpg"))" alt="product-1" /></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name"><a href="#">Leather Mens Slipper</a></h5>
+                        <div class="price-box"><span class="price-regular">$80.00</span></div>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-thumb">
+                        <a href="#"><img src="@(Url.Content("~/assets/img/product/product-2.jpg"))" alt="product-2" /></a>
+                    </div>
+                    <div class="product-content">
+                        <h5 class="product-name"><a href="#">Quickiin Mens shoes</a></h5>
+                        <div class="price-box"><span class="price-regular">$80.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- modal örneği -->
+<div class="modal" id="quick_view">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button></div>
+            <div class="modal-body">
+                <div class="product-details-inner">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="product-large-slider mb-20">
+                                <div class="pro-large-img img-zoom">
+                                    <img src="@(Url.Content("~/assets/img/product/product-details-img1.jpg"))" alt="product thumb" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- offcanvas & minicart (kısa) -->
+<div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner">
+        <div class="minicart-inner-content">
+            <div class="minicart-item-wrapper">
+                <ul>
+                    <li class="minicart-item">
+                        <div class="minicart-thumb"><a href="#"><img src="@(Url.Content("~/assets/img/cart/cart-1.jpg"))" alt="product" /></a></div>
+                        <div class="minicart-content"><h3 class="product-name"><a href="#">Flowers bouquet</a></h3></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scroll-top not-visible"><i class="fa fa-angle-up"></i></div>

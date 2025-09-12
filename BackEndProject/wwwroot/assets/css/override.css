@@ -1,0 +1,19 @@
+﻿.hero-slider .hero-slider-item,
+.hero-slider-item.bg-img {
+    min-height: 360px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.product-carousel-4 .product-item {
+    display: inline-block !important;
+    width: 240px !important;
+    margin: 0 10px !important;
+}
+
+.header-top, .header-main-area, .hero-slider {
+    display: block !important;
+    visibility: visible !important;
+}

@@ -1,0 +1,98 @@
+﻿@{
+    var title = ViewData["Title"] ?? "BackEndProject";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@title</title>
+
+    <!-- Core / framework -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
+
+    <!-- Common icon/fonts (fallback CDN added) -->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Theme / vendor CSS (genelde temasız dosya isimleri) -->
+    <link rel="stylesheet" href="~/assets/css/vendor.css" />
+    <link rel="stylesheet" href="~/assets/css/plugins.css" />
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+    <link rel="stylesheet" href="~/assets/css/responsive.css" />
+
+    <!-- Local small overrides (bu dosyayı ekle / güncelle) -->
+    <link rel="stylesheet" href="~/assets/css/override.css" />
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BackEndProject</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="border-top footer text-muted mt-4">
+        <div class="container">
+            &copy; @DateTime.Now.Year - BackEndProject
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Theme / vendor JS  -->
+    <script src="~/assets/js/vendor.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/active.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>(function ($) {
+            $(function () {
+                try {
+                    if ($.fn.slick && $('.hero-slider-active').length) {
+                        $('.hero-slider-active').not('.slick-initialized').slick({
+                            dots: true,
+                            arrows: true,
+                            autoplay: true,
+                            autoplaySpeed: 5000,
+                            slidesToShow: 1,
+                            responsive: [{ breakpoint: 768, settings: { arrows: false } }]
+                        });
+                    }
+                } catch (e) {
+                    console && console.warn && console.warn('Slider init error:', e);
+                }
+
+                if (typeof ($.fn.tooltip) === 'function') {
+                    $('[data-toggle="tooltip"]').tooltip();
+                }
+            });
+        })(jQuery);</script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
