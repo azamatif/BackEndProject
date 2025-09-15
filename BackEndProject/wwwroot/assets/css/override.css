@@ -17,3 +17,54 @@
     display: block !important;
     visibility: visible !important;
 }
+    /* strong overrides to force hero visible */
+    .hero-slider .hero-slider-item,
+    .hero-slider-item.bg-img {
+        min-height: 360px !important;
+        height: auto !important;
+        display: block !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* fallback: hero içi text'lerin pozisyonunu koru */
+    .hero-slider .hero-slider-content {
+        z-index: 2;
+        position: relative;
+    }
+
+/* prevent hidden parent */
+.header-top, .header-main-area, .hero-slider {
+    display: block !important;
+    visibility: visible !important;
+}
+/* QUICK FIX: make hero full-bleed (edge-to-edge) even if inside .container */
+.hero-slider {
+    position: relative;
+    width: 100vw; /* full viewport width */
+    left: 50%; /* center trick */
+    right: 50%;
+    margin-left: -50vw; /* pull to left edge */
+    margin-right: -50vw; /* pull to right edge */
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+    /* ensure inner container behaves (optional) */
+    .hero-slider .container {
+        max-width: none;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* keep hero image background correct */
+    .hero-slider .hero-slider-item,
+    .hero-slider-item.bg-img {
+        background-size: cover !important;
+        background-position: center center !important;
+        min-height: 360px !important;
+    }

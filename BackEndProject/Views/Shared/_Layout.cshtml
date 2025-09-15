@@ -8,128 +8,334 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@title</title>
 
-    <!-- Core / Bootstrap / jQuery UI -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
-
-    <!-- Fonts & Icons -->
+    <!-- Theme CSS -->
+    <link rel="shortcut icon" href="~/assets/img/favicon.ico" type="image/x-icon" />
+    <link href="~/assets/css/plugins.css" rel="stylesheet">
+    <link href="~/assets/css/vendor.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/override.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-    <!-- Vendor/CSS/Theme -->
-    <link rel="stylesheet" href="~/assets/css/vendor.css" />
-    <link rel="stylesheet" href="~/assets/css/plugins.css" />
-    <link rel="stylesheet" href="~/assets/css/style.css" />
-    <link rel="stylesheet" href="~/assets/css/responsive.css" />
-    <link rel="stylesheet" href="~/assets/css/override.css" />
+    <script src="~/assets/js/modernizr-2.8.3.min.js"></script>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BackEndProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
-                    </ul>
+    <!-- Start Header Area -->
+    <header class="header-area">
+        <!-- main header start -->
+        <div class="main-header d-none d-lg-block">
+            <!-- header top start -->
+            <div class="header-top theme-bg">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="welcome-message">
+                                <p>Welcome to Juan online store</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <div class="header-top-settings">
+                                <ul class="nav align-items-center justify-content-end">
+                                    <li class="curreny-wrap">
+                                        $ Dollar (US)
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="dropdown-list curreny-list">
+                                            <li><a href="#">$ usd</a></li>
+                                            <li><a href="#"> € EURO</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="language">
+                                        <img src="~/assets/img/icon/en.png" alt="flag"> English
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="dropdown-list">
+                                            <li><a href="#"><img src="~/assets/img/icon/en.png" alt="flag"> english</a></li>
+                                            <li><a href="#"><img src="~/assets/img/icon/fr.png" alt="flag"> french</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+            <!-- header top end -->
+            <!-- header middle area start -->
+            <div class="header-main-area sticky">
+                <div class="container">
+                    <div class="row align-items-center position-relative">
+                        <!-- start logo area -->
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <img src="~/assets/img/logo/logo.png" alt="Juan Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- start logo area -->
+                        <!-- main menu area start -->
+                        <div class="col-lg-8 position-static">
+                            <div class="main-menu-area">
+                                <div class="main-menu">
+                                    <!-- main menu navbar start -->
+                                    <nav class="desktop-menu">
+                                        <ul>
+                                            <li class="active">
+                                                <a href="@Url.Action("Index", "Home")">Home <i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="@Url.Action("Index", "Home")">Home version 01</a></li>
+                                                    <li><a href="#">Home version 02</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="static">
+                                                <a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                                                <ul class="megamenu dropdown">
+                                                    <li class="mega-title">
+                                                        <a href="#">column 01</a>
+                                                        <ul>
+                                                            <li><a href="#">shop grid left sidebar</a></li>
+                                                            <li><a href="#">shop grid right sidebar</a></li>
+                                                            <li><a href="#">shop list left sidebar</a></li>
+                                                            <li><a href="#">shop list right sidebar</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-title">
+                                                        <a href="#">column 02</a>
+                                                        <ul>
+                                                            <li><a href="#">product details</a></li>
+                                                            <li><a href="#">product details affiliate</a></li>
+                                                            <li><a href="#">product details variable</a></li>
+                                                            <li><a href="#">product details group</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-title">
+                                                        <a href="#">column 03</a>
+                                                        <ul>
+                                                            <li><a href="#">cart</a></li>
+                                                            <li><a href="#">checkout</a></li>
+                                                            <li><a href="#">compare</a></li>
+                                                            <li><a href="#">wishlist</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-title">
+                                                        <a href="#">column 04</a>
+                                                        <ul>
+                                                            <li><a href="#">my-account</a></li>
+                                                            <li><a href="#">login-register</a></li>
+                                                            <li><a href="#">contact us</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop <i class="fa fa-angle-down"></i></a>
+                                                <!-- alt menüler örnek, linkleri ASP.NET ile değiştirebilirsin -->
+                                                <ul class="dropdown">
+                                                    <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a></li>
+                                                    <li><a href="#">shop list layout <i class="fa fa-angle-right"></i></a></li>
+                                                    <li><a href="#">products details <i class="fa fa-angle-right"></i></a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Blog <i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">blog left sidebar</a></li>
+                                                    <li><a href="#">blog right sidebar</a></li>
+                                                    <li><a href="#">blog grid no sidebar</a></li>
+                                                    <li><a href="#">blog details</a></li>
+                                                    <li><a href="#">blog details audio</a></li>
+                                                    <li><a href="#">blog details video</a></li>
+                                                    <li><a href="#">blog details left sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Contact us</a></li>
+                                        </ul>
+                                    </nav>
+                                    <!-- main menu navbar end -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main menu area end -->
+                        <!-- mini cart area start -->
+                        <div class="col-lg-2">
+                            <div class="header-configure-wrapper">
+                                <div class="header-configure-area">
+                                    <ul class="nav justify-content-end">
+                                        <li>
+                                            <a href="#" class="offcanvas-btn">
+                                                <i class="ion-ios-search-strong"></i>
+                                            </a>
+                                        </li>
+                                        <li class="user-hover">
+                                            <a href="#">
+                                                <i class="ion-ios-gear-outline"></i>
+                                            </a>
+                                            <ul class="dropdown-list">
+                                                <li><a href="#">login</a></li>
+                                                <li><a href="#">register</a></li>
+                                                <li><a href="#">my account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="minicart-btn">
+                                                <i class="ion-bag"></i>
+                                                <div class="notification">2</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- mini cart area end -->
+                    </div>
+                </div>
+            </div>
+            <!-- header middle area end -->
+        </div>
+        <!-- main header start -->
+        <!-- mobile header start -->
+        <div class="mobile-header d-lg-none d-md-block sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="mobile-main-header">
+                            <div class="mobile-logo">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <img src="~/assets/img/logo/logo.png" alt="Brand Logo">
+                                </a>
+                            </div>
+                            <div class="mobile-menu-toggler">
+                                <div class="mini-cart-wrap">
+                                    <a href="#">
+                                        <i class="ion-bag"></i>
+                                    </a>
+                                </div>
+                                <div class="mobile-menu-btn">
+                                    <div class="off-canvas-btn">
+                                        <i class="ion-navicon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile header end -->
     </header>
+    <!-- end Header Area -->
 
     <main>
-        <div class="container">
-            @RenderBody()
-        </div>
+        @RenderBody()
     </main>
 
-    <footer class="border-top footer text-muted mt-4">
-        <div class="container">
-            &copy; @DateTime.Now.Year - BackEndProject
+    <!-- Start Footer Area Wrapper -->
+    <footer class="footer-wrapper">
+        <!-- footer main area start -->
+        <div class="footer-widget-area section-padding">
+            <div class="container">
+                <div class="row mtn-40">
+                    <!-- footer widget item start -->
+                    <div class="col-xl-5 col-lg-3 col-md-6">
+                        <div class="widget-item mt-40">
+                            <h5 class="widget-title">My Account</h5>
+                            <div class="widget-body">
+                                <ul class="location-wrap">
+                                    <li><i class="ion-ios-location-outline"></i>184 Main Rd E, St Albans VIC 3021, Australia</li>
+                                    <li><i class="ion-ios-email-outline"></i>Mail Us: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></li>
+                                    <li><i class="ion-ios-telephone-outline"></i>Phone: <a href="%2b0025425456554">+ 00 254 254565</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                    <!-- footer widget item start -->
+                    <div class="col-xl-2 col-lg-3 col-md-6">
+                        <div class="widget-item mt-40">
+                            <h5 class="widget-title">Categories</h5>
+                            <div class="widget-body">
+                                <ul class="useful-link">
+                                    <li><a href="#">Ecommerce</a></li>
+                                    <li><a href="#">Shopify</a></li>
+                                    <li><a href="#">Prestashop</a></li>
+                                    <li><a href="#">Opencart</a></li>
+                                    <li><a href="#">Magento</a></li>
+                                    <li><a href="#">Jigoshop</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                    <!-- footer widget item start -->
+                    <div class="col-xl-2 col-lg-3 col-md-6">
+                        <div class="widget-item mt-40">
+                            <h5 class="widget-title">Information</h5>
+                            <div class="widget-body">
+                                <ul class="useful-link">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Returns & Exchanges</a></li>
+                                    <li><a href="#">Shipping & Delivery</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                    <!-- footer widget item start -->
+                    <div class="col-xl-2 col-lg-3 offset-xl-1 col-md-6">
+                        <div class="widget-item mt-40">
+                            <h5 class="widget-title">Quick Links</h5>
+                            <div class="widget-body">
+                                <ul class="useful-link">
+                                    <li><a href="#">Store Location</a></li>
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="#">Orders Tracking</a></li>
+                                    <li><a href="#">Size Guide</a></li>
+                                    <li><a href="#">Shopping Rates</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                </div>
+            </div>
         </div>
+        <!-- footer main area end -->
+        <!-- footer bottom area start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 order-2 order-md-1">
+                        <div class="copyright-text text-center text-md-left">
+                            <p>Copyright 2019 <a href="#">Juan</a>. All Rights Reserved</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-1 order-md-2">
+                        <div class="footer-social-link text-center text-md-right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer bottom area end -->
+
     </footer>
-
-    <!-- Scripts: Temel ve tema JS dosyaları -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
-
+    <!-- End Footer Area Wrapper -->
+    <!-- Theme and plugin JS -->
     <script src="~/assets/js/vendor.js"></script>
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/active.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <!-- Slider ve data-bg için JS -->
-    <script>(function ($) {
-            $(function () {
-                // Slider 
-                try {
-                    if ($.fn.slick && $('.hero-slider-active').length) {
-                        $('.hero-slider-active').not('.slick-initialized').slick({
-                            dots: true,
-                            arrows: true,
-                            autoplay: true,
-                            autoplaySpeed: 5000,
-                            slidesToShow: 1,
-                            responsive: [{ breakpoint: 768, settings: { arrows: false } }]
-                        });
-                    }
-                } catch (e) {
-                    console && console.warn && console.warn('Slider init error:', e);
-                }
-
-                // Tooltip 
-                if (typeof ($.fn.tooltip) === 'function') {
-                    $('[data-toggle="tooltip"]').tooltip();
-                }
-            });
-        })(jQuery);
-
-        (function ($) {
-            $(function () {
-                try {
-                    var count = $('[data-bg]').length;
-                    console && console.log && console.log('data-bg elements found:', count);
-
-                    $('[data-bg]').each(function () {
-                        var $el = $(this);
-                        var bg = $el.attr('data-bg') || '';
-                        if (!bg) return;
-                        bg = bg.replace(/^~\//, '/');
-                        $el.css({
-                            'background-image': 'url("' + bg + '")',
-                            'background-size': 'cover',
-                            'background-position': 'center center'
-                        });
-                    });
-
-                    if ($.fn && $.fn.slick && $('.hero-slider-active').length) {
-                        $('.hero-slider-active').not('.slick-initialized').slick({
-                            dots: true,
-                            arrows: true,
-                            autoplay: true,
-                            autoplaySpeed: 5000,
-                            slidesToShow: 1,
-                            responsive: [{ breakpoint: 768, settings: { arrows: false } }]
-                        });
-                        console && console.log && console.log('slick initialized');
-                    } else {
-                        console && console.log && console.log('slick not available or no hero-slider-active');
-                    }
-                } catch (e) {
-                    console && console.error && console.error('data-bg init error', e);
-                }
-            });
-        })(jQuery);</script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
