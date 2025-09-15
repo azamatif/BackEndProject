@@ -1,0 +1,7 @@
+﻿@model BackEndProject.ViewModels.LoginViewModel
+<form asp-action="Login" method="post">
+    <input asp-for="Email" class="form-control" placeholder="Email" />
+    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+    <input asp-for="RememberMe" type="checkbox" /> Remember Me
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

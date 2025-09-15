@@ -8,22 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@title</title>
 
-    <!-- Core / framework -->
+    <!-- Core / Bootstrap / jQuery UI -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
 
-    <!-- Common icon/fonts (fallback CDN added) -->
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-    <!-- Theme / vendor CSS (genelde temasız dosya isimleri) -->
+    <!-- Vendor/CSS/Theme -->
     <link rel="stylesheet" href="~/assets/css/vendor.css" />
     <link rel="stylesheet" href="~/assets/css/plugins.css" />
     <link rel="stylesheet" href="~/assets/css/style.css" />
     <link rel="stylesheet" href="~/assets/css/responsive.css" />
-
-    <!-- Local small overrides (bu dosyayı ekle / güncelle) -->
     <link rel="stylesheet" href="~/assets/css/override.css" />
 
     <environment include="Development">
@@ -48,9 +46,11 @@
         </nav>
     </header>
 
-    <div class="container">
-        @RenderBody()
-    </div>
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
 
     <footer class="border-top footer text-muted mt-4">
         <div class="container">
@@ -58,20 +58,20 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts: Temel ve tema JS dosyaları -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- Theme / vendor JS  -->
     <script src="~/assets/js/vendor.js"></script>
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/active.js"></script>
-
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <!-- Slider ve data-bg için JS -->
     <script>(function ($) {
             $(function () {
+                // Slider 
                 try {
                     if ($.fn.slick && $('.hero-slider-active').length) {
                         $('.hero-slider-active').not('.slick-initialized').slick({
@@ -87,12 +87,49 @@
                     console && console.warn && console.warn('Slider init error:', e);
                 }
 
+                // Tooltip 
                 if (typeof ($.fn.tooltip) === 'function') {
                     $('[data-toggle="tooltip"]').tooltip();
                 }
             });
-        })(jQuery);</script>
+        })(jQuery);
 
+        (function ($) {
+            $(function () {
+                try {
+                    var count = $('[data-bg]').length;
+                    console && console.log && console.log('data-bg elements found:', count);
+
+                    $('[data-bg]').each(function () {
+                        var $el = $(this);
+                        var bg = $el.attr('data-bg') || '';
+                        if (!bg) return;
+                        bg = bg.replace(/^~\//, '/');
+                        $el.css({
+                            'background-image': 'url("' + bg + '")',
+                            'background-size': 'cover',
+                            'background-position': 'center center'
+                        });
+                    });
+
+                    if ($.fn && $.fn.slick && $('.hero-slider-active').length) {
+                        $('.hero-slider-active').not('.slick-initialized').slick({
+                            dots: true,
+                            arrows: true,
+                            autoplay: true,
+                            autoplaySpeed: 5000,
+                            slidesToShow: 1,
+                            responsive: [{ breakpoint: 768, settings: { arrows: false } }]
+                        });
+                        console && console.log && console.log('slick initialized');
+                    } else {
+                        console && console.log && console.log('slick not available or no hero-slider-active');
+                    }
+                } catch (e) {
+                    console && console.error && console.error('data-bg init error', e);
+                }
+            });
+        })(jQuery);</script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

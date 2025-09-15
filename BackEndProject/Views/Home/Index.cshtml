@@ -4,6 +4,7 @@
 
 <!-- Start Header Area -->
 <header class="header-area">
+    <!-- Desktop Header -->
     <div class="main-header d-none d-lg-block">
         <div class="header-top theme-bg">
             <div class="container">
@@ -29,16 +30,10 @@
                                     <i class="fa fa-angle-down"></i>
                                     <ul class="dropdown-list">
                                         <li>
-                                            <a href="#">
-                                                <img src="@(Url.Content("~/assets/img/icon/en.png"))" alt="flag" />
-                                                english
-                                            </a>
+                                            <a href="#"><img src="@(Url.Content("~/assets/img/icon/en.png"))" alt="flag" /> english</a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <img src="@(Url.Content("~/assets/img/icon/fr.png"))" alt="flag" />
-                                                french
-                                            </a>
+                                            <a href="#"><img src="@(Url.Content("~/assets/img/icon/fr.png"))" alt="flag" /> french</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -59,19 +54,14 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col-lg-8 position-static">
                         <div class="main-menu-area">
                             <div class="main-menu">
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li class="active">
-                                            <a asp-controller="Home" asp-action="Index">Home <i class="fa fa-angle-down"></i></a>
-                                        </li>
-                                        <li class="static">
-                                            <a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                        </li>
-                                        <li><a href="#">shop <i class="fa fa-angle-down"></i></a></li>
+                                        <li class="active"><a asp-controller="Home" asp-action="Index">Home <i class="fa fa-angle-down"></i></a></li>
+                                        <li class="static"><a href="#">Pages <i class="fa fa-angle-down"></i></a></li>
+                                        <li><a href="#">Shop <i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Blog</a></li>
                                         <li><a href="#">Contact us</a></li>
                                     </ul>
@@ -79,7 +69,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-2">
                         <div class="header-configure-wrapper">
                             <div class="header-configure-area">
@@ -97,7 +86,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -123,40 +111,56 @@
             </div>
         </div>
     </div>
-
 </header>
 
 <main>
+    <!-- HERO SLIDER -->
     <section class="hero-slider">
         <div class="container">
-            <div class="hero-slider-active">
-                <div class="hero-single-slide">
-                    <div class="hero-slider-item bg-img" style="background-image: url('@(Url.Content("~/assets/img/slider/slider-1.jpg"))');">
-                        <div class="hero-slider-content slide-1">
-                            <h5 class="slide-subtitle">Top Selling!</h5>
-                            <h2 class="slide-title">New Collection</h2>
-                            <p class="slide-desc">Lorem ipsum dolor sit amet.</p>
-                            <a href="#" class="btn btn-hero">SHOP NOW</a>
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-slider-active">
+                        <div class="hero-single-slide">
+                            <div class="hero-slider-item">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <div class="hero-slider-content">
+                                            <h5 class="slide-subtitle">Top Selling!</h5>
+                                            <h2 class="slide-title">Top Collection</h2>
+                                            <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                            <a href="#" class="btn btn-hero">SHOP NOW</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <img src="@(Url.Content("~/assets/img/slider/slider-1.jpg"))" alt="slider" class="img-fluid" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-single-slide">
+                            <div class="hero-slider-item">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <div class="hero-slider-content">
+                                            <h5 class="slide-subtitle">Best Selling!</h5>
+                                            <h2 class="slide-title">Top Collection</h2>
+                                            <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                            <a href="#" class="btn btn-hero">SHOP NOW</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <img src="@(Url.Content("~/assets/img/slider/slider-2.jpg"))" alt="slider2" class="img-fluid" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="hero-single-slide">
-                    <div class="hero-slider-item bg-img" style="background-image: url('@(Url.Content("~/assets/img/slider/slider-2.jpg"))');">
-                        <div class="hero-slider-content slide-1">
-                            <h5 class="slide-subtitle">Best Selling!</h5>
-                            <h2 class="slide-title">Top Collection</h2>
-                            <p class="slide-desc">Lorem ipsum dolor sit amet.</p>
-                            <a href="#" class="btn btn-hero">SHOP NOW</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- service features -->
+    <!-- Service Features -->
     <section class="service-policy-area">
         <div class="container">
             <div class="row">
@@ -197,7 +201,7 @@
         </div>
     </section>
 
-    <!-- product samples (kısa) -->
+    <!-- Product samples -->
     <section class="our-product section-padding">
         <div class="container">
             <div class="product-carousel-4">
@@ -210,7 +214,6 @@
                         <div class="price-box"><span class="price-regular">$80.00</span></div>
                     </div>
                 </div>
-
                 <div class="product-item">
                     <div class="product-thumb">
                         <a href="#"><img src="@(Url.Content("~/assets/img/product/product-2.jpg"))" alt="product-2" /></a>
@@ -223,10 +226,8 @@
             </div>
         </div>
     </section>
-
 </main>
 
-<!-- modal örneği -->
 <div class="modal" id="quick_view">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -248,7 +249,7 @@
     </div>
 </div>
 
-<!-- offcanvas & minicart (kısa) -->
+<!-- Offcanvas & minicart -->
 <div class="offcanvas-minicart-wrapper">
     <div class="minicart-inner">
         <div class="minicart-inner-content">
