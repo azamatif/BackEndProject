@@ -1,4 +1,3 @@
-/Users/arzufarajova/Desktop/pry/BackEndProject/BackEndProject/bin/Debug/net7.0/appsettings.Development.json
 /Users/arzufarajova/Desktop/pry/BackEndProject/BackEndProject/bin/Debug/net7.0/appsettings.json
 /Users/arzufarajova/Desktop/pry/BackEndProject/BackEndProject/bin/Debug/net7.0/BackEndProject.staticwebassets.runtime.json
 /Users/arzufarajova/Desktop/pry/BackEndProject/BackEndProject/bin/Debug/net7.0/BackEndProject

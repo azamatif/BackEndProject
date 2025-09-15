@@ -1,47 +1,49 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using BackEndProject.Data;
 using BackEndProject.Models;
-using BackEndProject.Data;
+using System.Collections.Generic;
+using System.Linq;
 
-public class CategoryService : ICategoryService
+namespace BackEndProject.Services
 {
-    private readonly AppDbContext _context;
-
-    public CategoryService(AppDbContext context)
+    public class CategoryService
     {
-        _context = context;
-    }
+        private readonly AppDbContext _context;
 
-    public async Task<List<Category>> GetAllAsync()
-    {
-        return await _context.Categories.ToListAsync();
-    }
-
-    public async Task<Category> GetOneAsync(int id)
-    {
-        return await _context.Categories.FindAsync(id);
-    }
-
-    public async Task CreateAsync(Category category)
-    {
-        _context.Categories.Add(category);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task UpdateAsync(Category category)
-    {
-        _context.Categories.Update(category);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task DeleteAsync(int id)
-    {
-        var cat = await _context.Categories.FindAsync(id);
-        if (cat != null)
+        public CategoryService(AppDbContext context)
         {
-            _context.Categories.Remove(cat);
-            await _context.SaveChangesAsync();
+            _context = context;
+        }
+
+        public List<Category> GetAll()
+        {
+            return _context.Categories.ToList();
+        }
+
+        public Category GetById(int id)
+        {
+            return _context.Categories.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void Add(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+        }
+
+        public void Update(Category category)
+        {
+            _context.Categories.Update(category);
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var category = _context.Categories.FirstOrDefault(c => c.Id == id);
+            if (category != null)
+            {
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+            }
         }
     }
 }

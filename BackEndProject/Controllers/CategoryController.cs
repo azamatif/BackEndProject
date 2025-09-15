@@ -1,69 +1,77 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using BackEndProject.Models;
+﻿using BackEndProject.Models;
 using BackEndProject.Services;
+using Microsoft.AspNetCore.Mvc;
 
-public class CategoryController : Controller
+namespace BackEndProject.Controllers
 {
-    private readonly ICategoryService _categoryService;
-
-    public CategoryController(ICategoryService categoryService)
+    public class CategoryController : Controller
     {
-        _categoryService = categoryService;
-    }
+        private readonly CategoryService _service;
 
-    public async Task<IActionResult> Index()
-    {
-        var categories = await _categoryService.GetAllAsync();
-        return View(categories);
-    }
-
-    public async Task<IActionResult> Detail(int id)
-    {
-        var category = await _categoryService.GetOneAsync(id);
-        if (category == null) return NotFound();
-        return View(category);
-    }
-
-    [HttpGet]
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(Category category)
-    {
-        if (ModelState.IsValid)
+        public CategoryController(CategoryService service)
         {
-            await _categoryService.CreateAsync(category);
-            return RedirectToAction(nameof(Index));
+            _service = service;
         }
-        return View(category);
-    }
 
-    [HttpGet]
-    public async Task<IActionResult> Edit(int id)
-    {
-        var category = await _categoryService.GetOneAsync(id);
-        if (category == null) return NotFound();
-        return View(category);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Edit(Category category)
-    {
-        if (ModelState.IsValid)
+        public IActionResult Index()
         {
-            await _categoryService.UpdateAsync(category);
-            return RedirectToAction(nameof(Index));
+            var categories = _service.GetAll();
+            return View(categories);
         }
-        return View(category);
-    }
 
-    public async Task<IActionResult> Delete(int id)
-    {
-        await _categoryService.DeleteAsync(id);
-        return RedirectToAction(nameof(Index));
+        public IActionResult Details(int id)
+        {
+            var category = _service.GetById(id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Add(category);
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var category = _service.GetById(id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Update(category);
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var category = _service.GetById(id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            _service.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
