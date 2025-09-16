@@ -6,18 +6,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<CategoryService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
-
-//builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => {
-//    options.SignIn.RequireConfirmedEmail = true;
-//})
-//.AddEntityFrameworkStores<AppDbContext>()
-//.AddDefaultTokenProviders();
-
 
 object AddEntityFrameworkStores<T>()
 {
@@ -25,7 +19,7 @@ object AddEntityFrameworkStores<T>()
 }
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 

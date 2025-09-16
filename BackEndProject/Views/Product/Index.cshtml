@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BackEndProject.Models.Product>
+
+@{
+    ViewData["Title"] = "Our Product";
+}
+
+<section class="our-product">
+    <div class="container">
+        <h2 class="text-center">Our Product</h2>
+        <p class="text-center text-muted">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card h-100">
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <img class="card-img-top" src="@(item.ImageUrl ?? "/images/default-product.png")" alt="@item.Name" />
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text text-muted">@item.Price.ToString("C")</p>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">View</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
